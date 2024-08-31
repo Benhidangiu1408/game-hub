@@ -18,16 +18,10 @@ function App() {
         <NavBar></NavBar>
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside" bg="pink">
-          aside
-        </GridItem>
+        <GridItem area="aside">aside</GridItem>
       </Show>
-      <GridItem area="main" bg="red">
-        main
-      </GridItem>
-      <GridItem area="footer" bg="yellow">
-        footer
-      </GridItem>
+      <GridItem area="main">main</GridItem>
+      <GridItem area="footer">footer</GridItem>
     </Grid>
   );
 }

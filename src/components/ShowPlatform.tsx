@@ -34,7 +34,7 @@ const ShowPlatform = ({ platforms }: Props) => {
     <HStack marginY={"10px"}>
       {platforms.map((p) => (
         // <Text>{p.name}</Text>
-        <Icon as={iconMap[p.slug]} color="gray.500" />
+        <Icon key={p.id} as={iconMap[p.slug]} color="gray.500" />
       ))}
     </HStack>
   );

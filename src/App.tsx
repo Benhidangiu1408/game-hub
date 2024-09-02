@@ -1,6 +1,8 @@
 import {
+  Box,
   Button,
   ButtonGroup,
+  Flex,
   Grid,
   GridItem,
   HStack,
@@ -15,11 +17,13 @@ import PlatformSelector from "./components/PlatformSelector";
 import { parent_Platform } from "./hooks/usePlatform";
 import { Platform } from "./hooks/useGame";
 import SortSelector from "./components/SortSelector";
+import { BsBox } from "react-icons/bs";
 
 export interface GameQuery {
   genre: Genres | null;
   platform: parent_Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -42,7 +46,9 @@ function App() {
       }}
     >
       <GridItem area="header">
-        <NavBar></NavBar>
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        ></NavBar>
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
@@ -53,20 +59,23 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform: Platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          ></PlatformSelector>
+        <Flex paddingLeft={2} marginBottom={5}>
+          <Box marginRight={5}>
+            <PlatformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform: Platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            ></PlatformSelector>
+          </Box>
+
           <SortSelector
             sortOrder={gameQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
               setGameQuery({ ...gameQuery, sortOrder })
             }
           ></SortSelector>
-        </HStack>
+        </Flex>
         <GameGrid gameQuery={gameQuery}></GameGrid>
       </GridItem>
       <GridItem area="footer">footer</GridItem>

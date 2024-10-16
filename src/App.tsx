@@ -81,7 +81,7 @@ function App() {
           <GameGrid gameQuery={gameQuery}></GameGrid>
         </Box>
       </GridItem>
-      {/* <GridItem area="footer">footer</GridItem> */}
+      <GridItem area="footer">footer</GridItem>
     </Grid>
   );
 }

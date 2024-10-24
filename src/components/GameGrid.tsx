@@ -12,11 +12,9 @@ import useGame, { Platform } from "../hooks/useGame";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCartContainer from "./GameCartContainer";
-import { Genres } from "../hooks/useGenres";
-import { parent_Platform } from "../hooks/usePlatform";
+import { Genres } from "../entity/Genres";
+import { parent_Platform } from "../entity/parent_Platform";
 import InfiniteScroll from "react-infinite-scroll-component";
-
-
 
 const GameGrid = () => {
   const {

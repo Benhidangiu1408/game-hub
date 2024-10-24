@@ -1,12 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { FetchResponse } from "../services/api-client"
 import APIClient from "../services/api-client"
-
-export interface parent_Platform{
-    id:number
-    name:string
-    slug:string
-}
+import { parent_Platform } from "../entity/parent_Platform"
 
 const apiClient=new APIClient<parent_Platform>('/platforms/lists/parents')
 
